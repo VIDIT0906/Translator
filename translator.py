@@ -3,9 +3,11 @@ import speech_recognition as sr
 import pyttsx3
 import streamlit as st
 from googletrans import Translator
+import toml
 
 # Set OpenAI API key
-openai.api_key = OPENAI
+config = toml.load("config.toml")
+openai.api_key = config["openai"]["api_key"]
 
 # Initialize pyttsx3 engine for text-to-speech
 engine = pyttsx3.init()
