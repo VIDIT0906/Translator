@@ -5,7 +5,7 @@ import streamlit as st
 from googletrans import Translator
 
 # Set OpenAI API key
-openai.api_key = 'sk-svcacct-ltGuo914t3yeOhOQmyH6ULfQXgdqPLlFD_lVQc5zpH7tZPR-1Hck1xFoJk0CECtDrT3BlbkFJOVUKUfEEWH99i1YXP1nVDNvSP81OsL8s7El-oKY8bulVNQYFoqcABGF0M-78hNxAA'
+openai.api_key = OPENAI
 
 # Initialize pyttsx3 engine for text-to-speech
 engine = pyttsx3.init()
