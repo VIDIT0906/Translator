@@ -6,8 +6,7 @@ from googletrans import Translator
 import toml
 
 # Set OpenAI API key
-config = toml.load("config.toml")
-openai.api_key = config["openai"]["api_key"]
+openai.api_key = st.secrets["openai"]["api_key"]
 
 # Initialize pyttsx3 engine for text-to-speech
 engine = pyttsx3.init()
