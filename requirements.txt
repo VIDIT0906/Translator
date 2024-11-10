@@ -1,6 +1,6 @@
-openai
+speech_recognition
 streamlit
-pyttsx3
-SpeechRecognition
-googletrans
-espeakng
+transformers
+gtts
+tempfile
+torch
