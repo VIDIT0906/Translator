@@ -1,3 +1,4 @@
+Live product available [here](https://huggingface.co/spaces/VIDIT0906/Translator).  
 # Speech-to-Text Translation App
 This project is a speech-to-text translation application that allows users to:
 * Convert spoken input into text.
