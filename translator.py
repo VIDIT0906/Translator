@@ -26,15 +26,19 @@ def recognize_speech():
             return None
 
 # Function to translate text using OpenAI API
+# Function to translate text using OpenAI API
 def translate_text(text, target_language='en'):
     try:
-        # Using OpenAI for translation (Can also use Google Translate API or other models)
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=f"Translate this text into {target_language}: {text}",
-            max_tokens=200
+        # Use ChatCompletion with gpt-3.5-turbo
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": f"Translate the following text into {target_language}."},
+                {"role": "user", "content": text}
+            ]
         )
-        translated_text = response['choices'][0]['text'].strip()
+        # Extracting the translated text from response
+        translated_text = response['choices'][0]['message']['content'].strip()
         return translated_text
     except Exception as e:
         st.error(f"Error translating text: {str(e)}")
