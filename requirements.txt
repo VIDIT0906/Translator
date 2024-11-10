@@ -4,3 +4,4 @@ gtts==2.2.3
 ffmpy==0.4
 httpx==0.23.0
 torch==2.5.1
+sentencepiece==0.2.0
