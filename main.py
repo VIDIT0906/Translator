@@ -24,15 +24,18 @@ def load_translation_pipeline(target_language):
     return translation_pipelines[target_language]
 
 # Translation and audio generation function with error handling
-def translate_speech_to_text(audio, input_lang_name, output_lang_name):
+def translate_speech_to_text(audio, input_lang_name, output_lang_name, modified_text=None):
     try:
         # Map selected language names to codes
         input_lang = language_dict[input_lang_name]
         output_lang = language_dict[output_lang_name]
-        
-        # Speech-to-text conversion
-        asr_result = asr_pipeline(audio)["text"]
-        original_text = asr_result if asr_result else "No transcription available."
+
+        # Speech-to-text conversion if no manual modification has been made
+        if modified_text is None or modified_text == "":
+            asr_result = asr_pipeline(audio)["text"]
+            original_text = asr_result if asr_result else "No transcription available."
+        else:
+            original_text = modified_text
 
         # Translation
         try:
@@ -60,13 +63,14 @@ def translate_speech_to_text(audio, input_lang_name, output_lang_name):
 
     return original_text, translated_text, audio_path
 
-# Gradio interface
+# Gradio interface with editable "Original Transcript" field
 interface = gr.Interface(
     fn=translate_speech_to_text,
     inputs=[
         gr.Audio(type="filepath", label="Speak Now"),
         gr.Dropdown(choices=list(language_dict.keys()), value="English", label="Input Language"),
         gr.Dropdown(choices=list(language_dict.keys()), value="German", label="Output Language"),
+        gr.Textbox(label="Original Transcript", placeholder="Edit transcript here if needed"),  # Editable input-output field
     ],
     outputs=[
         gr.Textbox(label="Original Transcript"),
