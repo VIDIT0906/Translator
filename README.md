@@ -8,8 +8,8 @@ This project is a speech-to-text translation application that allows users to:
 Built with Gradio, Hugging Face Transformers, and Google Text-to-Speech (gTTS), this app supports multiple languages for translation, enabling seamless multilingual communication.
 
 # Features
-* Automatic Speech Recognition (ASR): Converts spoken English input to text using a speech recognition model.
-* Real-Time Translation: Translates text from English to a target language of choice.
+* Automatic Speech Recognition (ASR): Converts spoken input to text using a speech recognition model.
+* Real-Time Translation: Translates the text to a target language of choice.
 * Audio Playback: Generates audio of the translated text, allowing users to hear the translated phrase.
 * User-Friendly Interface: Dual transcript display (original and translated), language selection dropdowns, and a “Speak” button for audio playback.
 
